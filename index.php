@@ -220,18 +220,24 @@
                     <?php if($userWanted): ?>
                     <div class="row">
                         <div class="col-md-offset-1 col-md-10">
-                            <p><b>Dono PET:</b>
+                            <p>
+                                <b>Dono PET:</b>
                                 <?php echo $userWanted['name']?>
                             </p>
-                            <p><b>Facebook:</b>
+                            <p>
+                                <b>Facebook:</b>
                                 <?php echo $userWanted['facebook']?>
                             </p>
-                            <p><b>WhatsApp:</b>
-                                <?php echo $userWanted['whatsapp']?>
+                            <p>
+                                <b>WhatsApp:</b>
+                                <a target="_blank" href="https://api.whatsapp.com/send?1=pt_BR&phone=55<?php echo preg_replace("/\s|[(]|[)]|[-]/","",$userWanted['whatsapp']) ?>">
+                                    <?php echo $userWanted['whatsapp']?>
+                                </a>
                             </p>
-                            <p><b>E-mail:</b>
-                                <a href="mailto:<?php echo $userWanted['name']?>">
-                                    <?php echo $userWanted['name']?>
+                            <p>
+                                <b>E-mail:</b>
+                                <a href="mailto:<?php echo $userWanted['email']?>">
+                                    <?php echo $userWanted['email']?>
                                 </a>
                             </p>
                         </div>
