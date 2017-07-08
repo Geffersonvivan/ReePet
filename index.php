@@ -139,12 +139,34 @@
 					</div>
 					<div class="col-md-6">
 						<div class="card">
-
+							<h3 class="card__title">Cadastrar código</h3>
+							<div class="card__description">
+								<p>Digite o código impresso na coleira.</p>
+							</div>
+							<style>
+								#search-code-content{
+									height: 300px;
+									display: flex;
+									align-items: center;
+								}
+								#search-code-content > * {
+									width: 100%;
+								}
+							</style>
+							<div id="search-code-content">
+								<div>
+									<form class="form" method="post">
+										<input type="text" name="code" class="input input--full-width">
+										<button type="button" name="action" class="button button--full-width">Pesquisar</button>
+									</form>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
+
     <!-- Serviço -->
     <section id="services" class="home-section bg-white">
         <div class="container">
