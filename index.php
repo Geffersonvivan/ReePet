@@ -213,8 +213,15 @@
 			</div>
 		</section>
 
+		<!-- Footer -->
+		<footer class="main-footer">
+			Copyright ©2017 Todos os direitos reservados
+		</footer>
+
+
+		<!-- Old code -->
     <!-- Serviço -->
-    <section id="services" class="home-section bg-white">
+    <!-- <section id="services" class="home-section bg-white">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-2 col-md-8">
@@ -229,7 +236,6 @@
             </div>
             <div class="row">
 
-                <!-- Cadastrar Código -->
                 <div class="col-xs-12 col-sm-6" data-wow-delay="0.3s">
                     <div>
                         <i class="fa fa-cog fa-4x"></i>
@@ -299,7 +305,6 @@
                     </div>
                 </div>
 
-                <!-- Pesquisar Código -->
                 <div class="col-xs-12 col-sm-6" data-wow-delay="0.5s">
                     <div>
                         <i class="fa fa-desktop fa-4x"></i>
@@ -361,7 +366,7 @@
 
     <hr>
 
-    <!-- FAQ | Video -->
+
     <section id="faq" class="home-section bg-white">
         <div class="container">
             <div class="row">
@@ -378,7 +383,7 @@
 
         <hr>
 
-        <!-- Apoiadores -->
+
         <section id="apoiadores" class="home-section bg-white">
             <div class="container">
                 <div class="row">
@@ -393,7 +398,7 @@
 
         <hr>
 
-        <!-- Contact -->
+
         <section id="contact" class="home-section bg-white">
             <div class="container">
                 <div class="row">
@@ -495,7 +500,7 @@
                     </div>
                 </div>
 
-                <!--redes sociais-->
+
 
                 <div class="row mar-top30 ">
                     <div class="col-md-offset-2 col-md-8">
@@ -521,7 +526,7 @@
             </div>
         </section>
 
-        <!-- Footer -->
+
         <footer>
             <div class="container">
                 <div class="row">
@@ -531,7 +536,7 @@
                 </div>
             </div>
         </footer>
-    </section>
+    </section> -->
 
     <!-- js -->
     <script src="style/js/jquery.js"></script>

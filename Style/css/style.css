@@ -56,6 +56,14 @@ body{
 		line-height: 1.2;
 	}
 
+.main-footer{
+	line-height: 80px;
+	background-color: #ededed;
+	text-align: center;
+	color: #7a7a7a;
+	font-weight: 600;
+}
+
 /* ID's */
 #search-code-content{
 	height: 300px;
