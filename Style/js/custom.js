@@ -21,12 +21,15 @@ onload = function(){
 }
 
 function headerScroll() {
-	window.addEventListener('scroll', function(){
+	var checkAndUpdateHeaderClass = function(){
 		var scrollTop = document.body.scrollTop;
 		if(scrollTop){
 			document.querySelector(".main-header__nav").classList.add('main-header__nav--fixed');
 		}else{
 			document.querySelector(".main-header__nav--fixed").classList.remove('main-header__nav--fixed');
 		}
-	});
+	};
+
+	checkAndUpdateHeaderClass();
+	window.addEventListener('scroll', function(){checkAndUpdateHeaderClass()});
 }
