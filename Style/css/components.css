@@ -1,14 +1,15 @@
 .button{
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 22px;
-  text-align: center;
-  font-weight: 600;
-  line-height: 45px;
-  height: 45px;
-  border: 2px solid #ce1216;
   background-color: transparent;
+  border: 2px solid #ce1216;
+  border-radius: 22px;
   color: #565655;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  height: 45px;
+  line-height: 40px;
+  text-align: center;
   transition: .3s all ease;
 }
 
@@ -28,3 +29,43 @@
 .button--full-width{
   width: 100%;
 }
+
+.input{
+  border: 1px solid #d0d0d0;
+  box-shadow: 0 2px 7px 1px rgba(0,0,0,.4);
+  display: inline-block;
+  line-height: 45px;
+  height: 45px;
+  border-radius: 22px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.input--full-width{
+  width: 100%;
+}
+
+.form .input,
+.form .button{
+  margin-bottom: 10px;
+}
+
+.card{
+  min-height: 525px;
+  background-color: white;
+  box-shadow: 0 5px 36px 0px rgba(0,0,0, .3);
+  padding: 45px;
+}
+
+  .card__title{
+    color: #ce1216;
+    font-size: 28px;
+    margin-bottom: 1.2em;
+    text-align: center;
+  }
+
+  .card__description{
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 25px;
+  }

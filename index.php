@@ -10,6 +10,7 @@
     <title>ReePet</title>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700" rel="stylesheet">
     <!-- css -->
     <link href="style/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="style/color/default.css" rel="stylesheet" media="screen">
@@ -17,6 +18,7 @@
     <link href="style/css/fontello.css" rel="stylesheet">
 		<link href="style/css/style.css" rel="stylesheet" media="screen">
 		<link href="style/css/components.css" rel="stylesheet" media="screen">
+		<link href="style/css/helpers.css" rel="stylesheet" media="screen">
 </head>
 
 <body>
@@ -97,10 +99,53 @@
 					</div>
 				</div>
 			</nav>
+			<div class="main-header__section">
+				<div class="container">
+					Ajudamos você a <br>
+					<span class="primary-color"><b>Ree</b>ncontrar</span> seu Pet de <br>
+					uma forma simples e fácil!
+					<br>
+					<div class="row">
+						<div class="col-md-4">
+							<br>
+							<a type="button" class="button button--full-width">Reencontre agora mesmo</a>
+						</div>
+					</div>
+				</div>
+			</div>
     </header>
 
-    <!-- Serviço -->
 
+		<section class="section-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="card">
+							<h3 class="card__title">Cadastrar código</h3>
+							<div class="card__description">
+								<p>Preencha e receba etiqueta via e-mail.</p>
+							</div>
+							<form method="post" class="form">
+								<input type="text" name="name" placeholder="Nome" class="input input--full-width">
+								<input type="text" name="facebook" placeholder="Facebook" class="input input--full-width">
+								<input type="text" name="whatsapp" placeholder="Whatsapp" class="input input--full-width">
+								<input type="text" name="E-mail" placeholder="E-mail" class="input input--full-width">
+								<button type="submit" name="action" value="create" class="button button--full-width">Cadastrar</button>
+							</form>
+							<div class="text-right">
+								Esqueceu sua senha?
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="card">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+    <!-- Serviço -->
     <section id="services" class="home-section bg-white">
         <div class="container">
             <div class="row">
