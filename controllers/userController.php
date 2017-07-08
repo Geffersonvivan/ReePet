@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -48,9 +48,6 @@ if($action == 'search'){
 	$sth->execute();
 	$userWanted = $sth->fetch(PDO::FETCH_ASSOC);
 }
-
-
-
 
 function getRandomCode(){
 	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

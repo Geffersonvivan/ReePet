@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$action = isset($_POST['action'])?$_POST['action']:'';
 
 	include "controllers/userController.php";
@@ -11,17 +11,17 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- css -->
-    <link href="Style/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="Style/css/style.css" rel="stylesheet" media="screen">
-    <link href="Style/color/default.css" rel="stylesheet" media="screen">
-    <script src="Style/js/modernizr.custom.js"></script>
-    <link href="Style/css/fontello.css" rel="stylesheet">
+    <link href="style/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="style/color/default.css" rel="stylesheet" media="screen">
+    <script src="style/js/modernizr.custom.js"></script>
+    <link href="style/css/fontello.css" rel="stylesheet">
+		<link href="style/css/style.css" rel="stylesheet" media="screen">
 
 </head>
 
 <body>
 
-    <!-- Modal -->
+    <!-- Created code modal -->
     <?php if($cretedCode): ?>
     <script type="text/javascript">
         onload = function() {
@@ -29,7 +29,6 @@
                 $('#createdCodeModal').modal()
             });
         }
-
     </script>
     <div class="modal fade" id="createdCodeModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -49,6 +48,7 @@
     </div>
     <?php endif; ?>
 
+		<!-- Recovered Code -->
     <?php if($recoveredCode): ?>
     <script type="text/javascript">
         onload = function() {
@@ -56,8 +56,8 @@
                 $('#recoveredCode').modal()
             });
         }
-
     </script>
+
     <div class="modal fade" id="recoveredCode" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -76,35 +76,18 @@
     </div>
     <?php endif; ?>
 
-    <div class="menu-area">
-        <div id="dl-menu" class="dl-menuwrapper">
-            <button class="dl-trigger">Open Menu</button>
-            <ul class="dl-menu">
-                <li><a href="#intro">Home</a></li>
-                <li><a href="#services">Serviço</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#apoiadores">Apoio</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Home -->
-    <div id="intro">
-        <div class="intro-text">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="brand">
-                            <h1 class="foteGooglePT icon-guidedog" style="color:white"><b>R</b>ee<b>Pet</b></h1>
-                            <div class="line-spacer"></div>
-                            <p class="foteGooglePT"><span>Ajudamos você a <b>Ree</b>ncontrar seu <b>Pet</b> <br>de uma forma simples e fácil!</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Header -->
+    <header class="main-header">
+			<div class="container">
+				<nav class="main-header__nav">
+					<div class="row">
+						<div class="col-md-3">
+							<img src="style/img/logo.png" alt="Logo Menpet" class="img-responsive visible-xs-inline-block visible-md-inline-block">
+						</div>
+					</div>
+				</nav>
+			</div>
+    </header>
 
     <!-- Serviço -->
 
@@ -428,13 +411,13 @@
     </section>
 
     <!-- js -->
-    <script src="Style/js/jquery.js"></script>
-    <script src="Style/js/bootstrap.min.js"></script>
-    <script src="Style/js/jquery.smooth-scroll.min.js"></script>
-    <script src="Style/js/jquery.dlmenu.js"></script>
-    <script src="Style/js/jquery.mask.min.js"></script>
-    <script src="Style/js/wow.min.js"></script>
-    <script src="Style/js/custom.js"></script>
+    <script src="style/js/jquery.js"></script>
+    <script src="style/js/bootstrap.min.js"></script>
+    <script src="style/js/jquery.smooth-scroll.min.js"></script>
+    <script src="style/js/jquery.dlmenu.js"></script>
+    <script src="style/js/jquery.mask.min.js"></script>
+    <script src="style/js/wow.min.js"></script>
+    <script src="style/js/custom.js"></script>
 </body>
 
 </html>
