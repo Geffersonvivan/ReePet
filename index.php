@@ -16,7 +16,7 @@
     <script src="style/js/modernizr.custom.js"></script>
     <link href="style/css/fontello.css" rel="stylesheet">
 		<link href="style/css/style.css" rel="stylesheet" media="screen">
-
+		<link href="style/css/components.css" rel="stylesheet" media="screen">
 </head>
 
 <body>
@@ -78,15 +78,25 @@
 
     <!-- Header -->
     <header class="main-header">
-			<div class="container">
-				<nav class="main-header__nav">
+			<nav class="main-header__nav">
+				<div class="container">
 					<div class="row">
 						<div class="col-md-3">
-							<img src="style/img/logo.png" alt="Logo Menpet" class="img-responsive visible-xs-inline-block visible-md-inline-block">
+							<img src="style/img/logo.png" alt="Logo Menpet" class="main-header__nav__logo img-responsive">
+						</div>
+						<div class="col-md-5 col-md-offset-1">
+							<ul class="main-header__nav__list">
+								<li><a href="#">Pesquisar código</a></li>
+								<li><a href="#">Como funciona</a></li>
+								<li><a href="#">Fale conosco</a></li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<a type="button" class="button button--full-width">Cadastre-se</a>
 						</div>
 					</div>
-				</nav>
-			</div>
+				</div>
+			</nav>
     </header>
 
     <!-- Serviço -->

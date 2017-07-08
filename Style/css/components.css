@@ -1,0 +1,30 @@
+.button{
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 22px;
+  text-align: center;
+  font-weight: 600;
+  line-height: 45px;
+  height: 45px;
+  border: 2px solid #ce1216;
+  background-color: transparent;
+  color: #565655;
+  transition: .3s all ease;
+}
+
+.button:hover,
+.button:focus{
+  text-decoration: none;
+  color: #565655;
+  box-shadow: 0 3px 7px 1px rgba(0,0,0,.7);
+}
+
+.button:active{
+  text-decoration: none;
+  color: #565655;
+  box-shadow: 0 5px 14px 1px rgba(0,0,0,.7);
+}
+
+.button--full-width{
+  width: 100%;
+}

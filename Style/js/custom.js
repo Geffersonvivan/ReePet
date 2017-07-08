@@ -2,10 +2,7 @@
 	$( '#dl-menu' ).dlmenu();
 	$('ul.dl-menu li a').smoothScroll();
 
-
-	//animation
 	new WOW().init();
-
 })(jQuery);
 
 $(function(){
@@ -17,6 +14,20 @@ $(function(){
 			field.mask(SPMaskBehavior.apply({}, arguments), options);
 		}
 	};
-
 	$('.sp_celphones').mask(SPMaskBehavior, spOptions);
 });
+
+onload = function(){
+	headerScroll();
+}
+
+function headerScroll() {
+	window.addEventListener('scroll', function(){
+		var scrollTop = document.body.scrollTop;
+		if(scrollTop){
+			document.querySelector(".main-header__nav").classList.add('main-header__nav--fixed');
+		}else{
+			document.querySelector(".main-header__nav--fixed").classList.remove('main-header__nav--fixed');
+		}
+	});
+}
