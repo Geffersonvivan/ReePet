@@ -1,8 +1,8 @@
 .button{
-  background-color: transparent;
+  background-color: #ce1216;
   border: 2px solid #ce1216;
   border-radius: 22px;
-  color: #565655;
+  color: white;
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
@@ -16,14 +16,26 @@
 .button:hover,
 .button:focus{
   text-decoration: none;
-  color: #565655;
+  color: white;
   box-shadow: 0 3px 7px 1px rgba(0,0,0,.7);
 }
 
 .button:active{
   text-decoration: none;
-  color: #565655;
+  color: white;
   box-shadow: 0 5px 14px 1px rgba(0,0,0,.7);
+}
+
+.button--outline{
+  background-color: transparent;
+  border: 2px solid #ce1216;
+  color: #565655;
+}
+
+.button--outline:hover,
+.button--outline:focus,
+.button--outline:active{
+  color: #565655;
 }
 
 .button--full-width{

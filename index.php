@@ -94,7 +94,7 @@
 							</ul>
 						</div>
 						<div class="col-md-3">
-							<a type="button" class="button button--full-width">Cadastre-se</a>
+							<a type="button" class="button button--full-width button--outline">Cadastre-se</a>
 						</div>
 					</div>
 				</div>
@@ -108,7 +108,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<br>
-							<a type="button" class="button button--full-width">Reencontre agora mesmo</a>
+							<a type="button" class="button button--full-width button--outline">Reencontre agora mesmo</a>
 						</div>
 					</div>
 				</div>
