@@ -123,7 +123,13 @@
 									<input type="text" name="code" class="input input--full-width">
 									<button type="submit" class="button button--full-width">Pesquisar</button>
 								</form>
-                <div id="search-code-value"></div>
+                <div id="search-code-value" print-show="searchCodeDone">
+                  <br>
+                  <b>Nome</b>: <span print-bind="searchCodeDone">data.name</span><br>
+                  <b>Facebook</b>: <span print-bind="searchCodeDone">data.facebook</span><br>
+                  <b>Whatsapp</b>: <span print-bind="searchCodeDone">data.whatsapp</span><br>
+                  <b>E-mail</b>: <span print-bind="searchCodeDone">data.email</span>
+                </div>
 							</div>
 						</div>
 					</div>

@@ -68,8 +68,14 @@ function searchCodeFormAjax() {
 		post.action = "searchCode";
 		$.post('controllers/UserController.php', post)
 			.done(function(data){
-				console.log();
-				$("#search-code-value").html("<br><b>Nome</b>:" + data.name + " <br> <b>Facebook</b>:" + data.facebook +"<br><b>Whatsapp</b>:" + data.whatsapp + "<br><b>E-mail</b>:" + data.email);
+				$valueContent = $("#search-code-value");
+				var binds = $valueContent.find("[print-bind=searchCodeDone]");
+				$.each(binds, function(item){
+					var $bind = $(binds[item]);
+					var value = eval($bind.text());
+					$bind.text(value);
+				});
+				$("[print-show=searchCodeDone]").show();
 			});
 	});
 }
