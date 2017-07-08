@@ -26,7 +26,8 @@ function headerScroll() {
 		if(scrollTop){
 			document.querySelector(".main-header__nav").classList.add('main-header__nav--fixed');
 		}else{
-			document.querySelector(".main-header__nav--fixed").classList.remove('main-header__nav--fixed');
+			var headerFixed = document.querySelector(".main-header__nav--fixed");
+			if(headerFixed) headerFixed.classList.remove('main-header__nav--fixed');
 		}
 	};
 

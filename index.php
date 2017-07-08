@@ -157,6 +157,7 @@
 			</div>
 		</section>
 
+		<!-- Como funciona -->
 		<section class="section-area text-white bg-img-red-family">
 			<div class="container">
 				<div class="row">
@@ -178,6 +179,35 @@
 						<div class="embed-responsive embed-responsive-16by9 shadow-dp-3">
 							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/c2OTHeCKsBE" frameborder="0" allowfullscreen></iframe>
 						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contato -->
+		<section class="section-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<h2 class="section-area__title primary-color">Envie seu <b>contato</b></h2>
+						<p>
+							Dúvidas, solicitações e assuntos gerais <br>
+							Entre em contato conosco que retornamos <br>
+							o mais breve possível
+						</p>
+					</div>
+					<div class="col-md-7 col-md-offset-1">
+						<form class="form text-right" method="post">
+							<input type="text" name="name" class="input input--full-width" placeholder="Nome">
+							<input type="email" name="email" class="input input--full-width" placeholder="Email">
+							<input type="text" name="subject" class="input input--full-width" placeholder="Assunto">
+							<textarea type="text" name="subject" class="input input--full-width" placeholder="Mensagem" rows="4"></textarea>
+							<div class="row">
+								<div class="col-md-5 pull-right">
+									<button type="submit" name="action" value="contact" class="button button--full-width">Cadastrar</button>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
