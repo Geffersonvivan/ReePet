@@ -50,8 +50,7 @@ function createFormAjax() {
 		post.action = "create";
 		$.post('controllers/UserController.php', post)
 			.done(function(data){
-				$("#created-code-modal").modal();
-				$("#created-code-modal-value").html(data);
+				bindEvent("createUserDone", {code: data})
 			});
 	});
 }
@@ -68,14 +67,15 @@ function searchCodeFormAjax() {
 		post.action = "searchCode";
 		$.post('controllers/UserController.php', post)
 			.done(function(data){
-				$valueContent = $("#search-code-value");
-				var binds = $valueContent.find("[print-bind=searchCodeDone]");
-				$.each(binds, function(item){
-					var $bind = $(binds[item]);
-					var value = eval($bind.text());
-					$bind.text(value);
-				});
-				$("[print-show=searchCodeDone]").show();
+				bindEvent("searchCodeDone", data)
 			});
+	});
+}
+
+function bindEvent(event, data){
+	$("[bind-show="+event+"]").show();
+	$("[bind-hide="+event+"]").hide();
+	$("[bind-print="+event+"]").each(function(){
+		$(this).text(eval("data."+$(this).text()));
 	});
 }
