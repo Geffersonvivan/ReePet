@@ -8,13 +8,9 @@ if(!$action){
 	$action = isset($_GET['action'])?$_GET['action']:'';
 }
 
-
-$cretedCode = false;
-$existintCode = false;
-/* Create */
 if($action == 'create'){
 	$action = false;
-	$db = new PDO('mysql:host=reepet_mysql_1;dbname=reepet', 'root', 'server897');
+	$db = createDb();
 	$sth = $db->prepare("INSERT INTO users (code, name, facebook, whatsapp, email) VALUES (:code, :name, :facebook, :whatsapp, :email)");
 	$code = codeGenerate();
 	$sth->bindValue(':code', $code);
@@ -23,30 +19,33 @@ if($action == 'create'){
 	$sth->bindValue(':whatsapp', $_POST['whatsapp']);
 	$sth->bindValue(':email', $_POST['email']);
 	$sth->execute();
-
-	$cretedCode = $code;
+	echo $code;
 }
 
-$recoveredCode = false;
 if($action == "recoveredCode"){
 	$action = false;
 	$email = $_POST['email'];
-	$db = new PDO('mysql:host=reepet_mysql_1;dbname=reepet', 'root', 'server897');
+	$db = createDb();
 	$sth = $db->prepare("SELECT code FROM users WHERE email = :email");
 	$sth->bindValue(':email', $email);
 	$sth->execute();
 	$recoveredCode = $sth->fetch(PDO::FETCH_ASSOC)['code'];
+	echo $recoveredCode;
 }
 
-/* Search */
-$userWanted = '';
-if($action == 'search'){
-	$code = $_GET['codigo'];
-	$db = new PDO('mysql:host=reepet_mysql_1;dbname=reepet', 'root', 'server897');
+if($action == 'searchCode'){
+	$code = $_POST['code'];
+	$db = createDb();
 	$sth = $db->prepare("SELECT * FROM users WHERE code = :code");
 	$sth->bindValue(':code', $code);
 	$sth->execute();
 	$userWanted = $sth->fetch(PDO::FETCH_ASSOC);
+	header('content-type: application/json');
+	echo json_encode($userWanted);
+}
+
+function createDb(){
+	return new PDO('mysql:host=reepet_mysql_1;dbname=reepet', 'root', 'server897');
 }
 
 function getRandomCode(){
@@ -59,7 +58,7 @@ function getRandomCode(){
 }
 
 function codeGenerate(){
-	$db = new PDO('mysql:host=reepet_mysql_1;dbname=reepet', 'root', 'server897');
+	$db = createDb();
   $code = '';
   do{
   	$code = getRandomCode();

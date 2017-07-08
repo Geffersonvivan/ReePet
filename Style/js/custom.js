@@ -18,6 +18,8 @@ $(function(){
 
 onload = function(){
 	headerScroll();
+	createFormAjax();
+	searchCodeFormAjax();
 }
 
 function headerScroll() {
@@ -33,4 +35,41 @@ function headerScroll() {
 
 	checkAndUpdateHeaderClass();
 	window.addEventListener('scroll', function(){checkAndUpdateHeaderClass()});
+}
+
+function createFormAjax() {
+	var $form = $("#create-form");
+	$form.on('submit', function(event){
+		event.preventDefault();
+    var inputs = $form.find("[name]");
+		var post = {};
+		$.each(inputs, function(item){
+			post[$(inputs[item]).attr('name')] = $(inputs[item]).val();
+			$(inputs[item]).val("");
+		})
+		post.action = "create";
+		$.post('controllers/UserController.php', post)
+			.done(function(data){
+				$("#created-code-modal").modal();
+				$("#created-code-modal-value").html(data);
+			});
+	});
+}
+
+function searchCodeFormAjax() {
+	var $form = $("#search-code-form");
+	$form.on('submit', function(event){
+		event.preventDefault();
+    var inputs = $form.find("[name]");
+		var post = {};
+		$.each(inputs, function(item){
+			post[$(inputs[item]).attr('name')] = $(inputs[item]).val();
+		})
+		post.action = "searchCode";
+		$.post('controllers/UserController.php', post)
+			.done(function(data){
+				console.log();
+				$("#search-code-value").html("<br><b>Nome</b>:" + data.name + " <br> <b>Facebook</b>:" + data.facebook +"<br><b>Whatsapp</b>:" + data.whatsapp + "<br><b>E-mail</b>:" + data.email);
+			});
+	});
 }
