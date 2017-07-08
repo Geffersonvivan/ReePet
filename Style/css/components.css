@@ -38,6 +38,11 @@
   color: #565655;
 }
 
+.button--outline.button--white{
+  border-color: white;
+  color: white;
+}
+
 .button--full-width{
   width: 100%;
 }

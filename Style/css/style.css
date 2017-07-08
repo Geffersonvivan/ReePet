@@ -55,3 +55,23 @@ body{
 		font-size: 38px;
 		line-height: 1.2;
 	}
+
+/* ID's */
+#search-code-content{
+	height: 300px;
+	display: flex;
+	align-items: center;
+}
+#search-code-content > * {
+	width: 100%;
+}
+
+#how-works-area{
+	height: 310px;
+	display: flex;
+	align-items: center;
+}
+
+#how-works-area h2{
+	margin-top: 0;
+}

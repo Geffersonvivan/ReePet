@@ -115,7 +115,7 @@
 			</div>
     </header>
 
-
+		<!-- Cadastro e pesquisa de código -->
 		<section class="section-area">
 			<div class="container">
 				<div class="row">
@@ -143,16 +143,6 @@
 							<div class="card__description">
 								<p>Digite o código impresso na coleira.</p>
 							</div>
-							<style>
-								#search-code-content{
-									height: 300px;
-									display: flex;
-									align-items: center;
-								}
-								#search-code-content > * {
-									width: 100%;
-								}
-							</style>
 							<div id="search-code-content">
 								<div>
 									<form class="form" method="post">
@@ -161,6 +151,32 @@
 									</form>
 								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section-area text-white bg-img-red-family">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5">
+						<div id="how-works-area">
+							<div>
+								<h2 class="section-area__title">Como <b>funciona</b></h2>
+								<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Cure.</p>
+								<div class="row">
+									<div class="col-md-8">
+										<br><br>
+										<a class="button button--outline button--white button--full-width" href="#">Estou interessado</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-md-offset-1">
+						<div class="embed-responsive embed-responsive-16by9 shadow-dp-3">
+							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/c2OTHeCKsBE" frameborder="0" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
