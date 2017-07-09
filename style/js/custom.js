@@ -24,6 +24,7 @@ onload = function(){
 	forgetedCodeForm();
 	setTimeout(function(){
 		$("#loading").fadeOut(300);
+		new WOW().init();
 	}, 1000);
 }
 
