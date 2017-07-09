@@ -43,19 +43,19 @@
 		<nav class="main-header__nav">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 col-md-2 col-xs-6">
+					<div class="col-lg-3 col-md-2 col-sm-4 col-xs-6">
             <a href="#topo">
               <img src="style/img/logo.png" alt="Logo Menpet" class="main-header__nav__logo img-responsive">
             </a>
 					</div>
-					<div class="col-lg-5 col-lg-offset-1 col-md-6 hidden-xs">
+					<div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-8 hidden-xs">
 						<ul class="main-header__nav__list">
 							<li><a href="#codigo">Pesquisar código</a></li>
 							<li><a href="#como-funciona">Como funciona</a></li>
 							<li><a href="#fale-conosco">Fale conosco</a></li>
 						</ul>
 					</div>
-					<div class="col-md-3 hidden-xs">
+					<div class="col-md-3 hidden-xs hidden-sm">
 						<a href="#codigo" type="button" class="button button--full-width button--outline">Cadastre-se</a>
 					</div>
 				</div>
@@ -438,57 +438,7 @@
 
                         <?php
 				if ($action == 'contact') {
-					function envia($destino, $nome, $assunto) {
-						require_once('phpmail/PHPMailerAutoload.php');
 
-						$mail = new PHPMailer();
-						$mail->IsHTML(true); // envio como HTML se 'true'
-						$mail->IsSMTP(); // send via SMTP
-						$mail->SMTPAuth = true; // 'true' para autenticaï¿½ï¿½o
-						$mail->Port = 587;
-						$mail->Mailer = "smtp"; //Usando protocolo SMTP
-						$mail->Host = "smtp.gmail.com"; //seu servidor SMTP
-						$mail->Username = "geffersonvivan@gmail.com";
-						$mail->Password = "senha"; // senha de SMTP
-						$mail->From = "naoresponda@o2multi.com.br";
-						$mail->FromName = "O2 Multicomunicação";
-						$mail->CharSet = "UTF-8";
-						$mail->SetFrom('naoresponda@o2multi.com.br', 'O2 Multicomunicação');
-						$mail->addAddress('geffersonvivan@gmail.com', 'O2 Multicomunicação');
-
-						$mail->AddAddress($destino, $nome); //alterar email aqui
-						$mail->addBCC('contatobkp@o2multi.com.br', 'O2 Multicomunicação');
-						$mail->Subject = $assunto;
-
-						foreach ($_POST as $key => $valor) {
-							if (($key != 'x') && ($key != 'y')) {
-								$campos[] = $key;
-								$valores[] = $valor;
-							}
-						}
-						$html = '';
-						for ($i = 0; $i < count($campos); $i++) {
-							$field = ucwords(str_replace('-', ' ', $campos[$i]));
-							$field = ucwords(str_replace('_', '/', $field));
-							$values = $valores[$i];
-							if ($field == 'mensagem') {
-								$html .= $field . '<br>' . nl2br($values) . '<br>';
-							} else if ($field != 'G Recaptcha Response') {
-								$html .= $field . ': ' . $values . '<br>';
-							}
-						}
-						$html = $html;
-						$mail->MsgHTML($html);
-
-						if (!$mail->Send()) {
-							return 0;
-						} else {
-							return 1;
-							echo "<p>enviado</p>";
-						}
-					}
-
-					$resultado = envia('geffersonvivan@gmail.com', 'O2 Multi', 'O2 Multi');
 				}
 
 				?>
