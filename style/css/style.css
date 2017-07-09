@@ -57,6 +57,29 @@ body{
 		line-height: 1.2;
 	}
 
+	@media (max-width: 767px){
+		.main-header{
+			background-position: 70%;
+		}
+
+		.main-header__section{
+			height: auto;
+			font-size: 28px;
+		}
+
+		.main-header__section .container{
+			height: auto;
+			background-color: rgba(255, 255, 255, .7);
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+
+		.main-header__nav--fixed{
+			background-color: rgba(255, 255, 255, .9);
+			line-height: 70px;
+		}
+	}
+
 .main-footer{
 	line-height: 80px;
 	background-color: #ededed;

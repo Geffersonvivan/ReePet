@@ -83,6 +83,14 @@ textarea.input{
   background-color: white;
   box-shadow: 0 5px 36px 0px rgba(0,0,0, .3);
   padding: 45px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 767px){
+  .card{
+    padding: 15px;
+    min-height: 0;
+  }
 }
 
   .card__title{

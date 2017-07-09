@@ -14,6 +14,13 @@
     margin-bottom: 30px;
   }
 
+@media (max-width:767px){
+  .section-area{
+    padding-top: 25px;
+    padding-bottom: 30px;
+  }
+}
+
 .bg-img-red-family{
   background-image: url("../img/background-red-family.jpg");
   background-size: cover;
