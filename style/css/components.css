@@ -18,16 +18,17 @@
 .button[disabled]{
   opacity: .8;
   cursor: not-allowed;
+  box-shadow: none !important;
 }
 
-.button:hover:not([disabled]),
-.button:focus:not([disabled]){
+.button:hover,
+.button:focus{
   text-decoration: none;
   color: white;
   box-shadow: 0 3px 7px 1px rgba(0,0,0,.7);
 }
 
-.button:active:not([disabled]){
+.button:active{
   text-decoration: none;
   color: white;
   box-shadow: 0 5px 14px 1px rgba(0,0,0,.7);
@@ -36,7 +37,7 @@
 .button--outline{
   background-color: transparent;
   border: 2px solid #ce1216;
-  color: #565655 !important;
+  color: #565655;
 }
 
 .button--outline:hover,
