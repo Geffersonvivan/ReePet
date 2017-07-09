@@ -17,6 +17,26 @@
 </head>
 
 <body>
+  <style media="screen">
+    #loading{
+      height: 100vh;
+      width: 100vw;
+      z-index: 999;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: white;
+    }
+    #loading img{
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+  <div id="loading">
+    <img src="style/img/loading.gif">
+  </div>
 
   <!-- Header -->
   <header class="main-header" id="#topo">
