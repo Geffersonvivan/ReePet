@@ -55,7 +55,11 @@ function createFormAjax() {
 		post.action = "create";
 		$.post('controllers/UserController.php', post)
 			.done(function(data){
-				bindEvent("createUserDone", {code: data})
+				if(data.existent){
+					bindEvent("createUseExisting", data);
+				}else{
+					bindEvent("createUserDone", data)
+				}
 			});
 	});
 }
@@ -92,7 +96,7 @@ function forgetedCodeForm(){
 		post.action = "forgetedCode";
 		$.post('controllers/UserController.php', post)
 			.done(function(data){
-				bindEvent("showForgetCodeDone", {code: data})
+				bindEvent("showForgetCodeDone", data)
 			});
 	});
 }

@@ -82,7 +82,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<div class="card" bind-init="_createUserStart_" bind-show="_createUserStart_" bind-hide="_createUserDone_showForgetCode_">
+					<div class="card" bind-init="_createUserStart_" bind-show="_createUserStart_" bind-hide="_createUserDone_showForgetCode_createUseExisting_">
 						<h3 class="card__title">Cadastrar código</h3>
 						<div class="card__description">
 							<p>Preencha e receba etiqueta via e-mail.</p>
@@ -104,6 +104,14 @@
 							<p>Use esse código na coleira do seu Pet, assim, se você o perder, alguém usará o código para entrar em contato com você.</p>
               <p>Seu código é:</p>
               <h1 bind-print="_createUserDone_">code</h1>
+						</div>
+					</div>
+          <div class="card" bind-show="_createUseExisting_">
+						<h3 class="card__title">E-mail já cadastrado</h3>
+						<div class="card__description">
+							<p>Esse e-mail já foi cadastrado, você pode conferir as informações usando o seu código.</p>
+              <p>Seu código é:</p>
+              <h1 bind-print="_createUseExisting_">code</h1>
 						</div>
 					</div>
           <div class="card" bind-show="_showForgetCode_" bind-hide="_createUserStart_">
