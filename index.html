@@ -62,7 +62,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<div class="card" bind-hide="createUserDone">
+					<div class="card" bind-init="_createUserStart_" bind-show="_createUserStart_" bind-hide="_createUserDone_showForgetCode_">
 						<h3 class="card__title">Cadastrar código</h3>
 						<div class="card__description">
 							<p>Preencha e receba etiqueta via e-mail.</p>
@@ -75,15 +75,34 @@
 							<button type="submit" class="button button--full-width">Cadastrar</button>
 						</form>
 						<div class="text-right">
-							Esqueceu sua senha?
+							<a bind-click="_showForgetCode_">Esqueceu seu código?</a>
 						</div>
 					</div>
-          <div class="card" bind-show="createUserDone">
+          <div class="card" bind-show="_createUserDone_">
 						<h3 class="card__title">Código criado com sucesso!</h3>
 						<div class="card__description">
 							<p>Use esse código na coleira do seu Pet, assim, se você o perder, alguém usará o código para entrar em contato com você.</p>
               <p>Seu código é:</p>
               <h1 bind-print="createUserDone">code</h1>
+						</div>
+					</div>
+          <div class="card" bind-show="_showForgetCode_" bind-hide="_createUserStart_">
+						<h3 class="card__title">Recuperação de código</h3>
+						<div class="card__description">
+							<p>Digite o seu e-mail abaixo para recuperar o seu código.</p>
+              <br><br>
+              <form class="form" method="post" id="forgeted-code-form" bind-hide="_showForgetCodeDone_">
+                <input type="text" name="email" class="input input--full-width" placeholder="E-mail">
+                <button type="submit" class="button button--full-width">Encontrar</button>
+              </form>
+              <div bind-show="_showForgetCodeDone_">
+                <p>Seu código é:</p>
+                <h1 bind-print="_showForgetCodeDone_">code</h1>
+              </div>
+              <br><br>
+              <div class="text-right">
+  							<a bind-click="_createUserStart_">Fazer cadastro</a>
+  						</div>
 						</div>
 					</div>
 				</div>
@@ -99,12 +118,12 @@
 									<input type="text" name="code" class="input input--full-width">
 									<button type="submit" class="button button--full-width">Pesquisar</button>
 								</form>
-                <div id="search-code-value" bind-show="searchCodeDone">
+                <div id="search-code-value" bind-show="_searchCodeDone_">
                   <br>
-                  <b>Nome</b>: <span bind-print="searchCodeDone">name</span><br>
-                  <b>Facebook</b>: <span bind-print="searchCodeDone">facebook</span><br>
-                  <b>Whatsapp</b>: <span bind-print="searchCodeDone">whatsapp</span><br>
-                  <b>E-mail</b>: <span bind-print="searchCodeDone">email</span>
+                  <b>Nome</b>: <span bind-print="_searchCodeDone_">name</span><br>
+                  <b>Facebook</b>: <span bind-print="_searchCodeDone_">facebook</span><br>
+                  <b>Whatsapp</b>: <a target="_blank" bind-param="_searchCodeDone_:href:whatsappLink"><span bind-print="_searchCodeDone_">whatsapp</span></a><br>
+                  <b>E-mail</b>: <span bind-print="_searchCodeDone_">email</span>
                 </div>
 							</div>
 						</div>

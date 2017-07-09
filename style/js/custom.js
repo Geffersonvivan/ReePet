@@ -20,6 +20,8 @@ onload = function(){
 	headerScroll();
 	createFormAjax();
 	searchCodeFormAjax();
+	bindEvents();
+	forgetedCodeForm();
 }
 
 function headerScroll() {
@@ -67,15 +69,59 @@ function searchCodeFormAjax() {
 		post.action = "searchCode";
 		$.post('controllers/UserController.php', post)
 			.done(function(data){
+				data.whatsappLink = "https://api.whatsapp.com/send?1=pt_BR&phone=55" + (data.whatsapp.replace(/\s|[(]|[)]|[-]/g, ""));
+				console.log(data.whatsappLink);
 				bindEvent("searchCodeDone", data)
 			});
 	});
 }
 
-function bindEvent(event, data){
-	$("[bind-show="+event+"]").show();
-	$("[bind-hide="+event+"]").hide();
-	$("[bind-print="+event+"]").each(function(){
-		$(this).text(eval("data."+$(this).text()));
+function forgetedCodeForm(){
+	var $form = $("#forgeted-code-form");
+	$form.on('submit', function(event){
+		event.preventDefault();
+    var inputs = $form.find("[name]");
+		var post = {};
+		$.each(inputs, function(item){
+			post[$(inputs[item]).attr('name')] = $(inputs[item]).val();
+		})
+		post.action = "forgetedCode";
+		$.post('controllers/UserController.php', post)
+			.done(function(data){
+				bindEvent("showForgetCodeDone", {code: data})
+			});
 	});
+}
+
+function bindEvent(event, data){
+	event = event.replace(/_/g, "");
+	$("[bind-show*=_"+event+"_]").show();
+	$("[bind-hide*=_"+event+"_]").hide();
+	$("[bind-print*=_"+event+"_]").each(function(){
+		$(this).html(getBind($(this).text()));
+	});
+	$("[bind-param*=_"+event+"_]").each(function(){
+		var content = $(this).attr("bind-param").replace("_"+event+"_:", "");
+		var param = content.split(":")[0];
+		var value = getBind(content.replace(/^.+:/,""));
+		console.log(param, value);
+		$(this).attr(param, value);
+	});
+
+	function getBind(key){
+		return eval("data."+key);
+	}
+}
+
+function bindEvents(){
+	$("[bind-click]").bind('click', function(){
+		triggetAllEvents($(this).attr('bind-click'));
+	})
+	triggetAllEvents($("[bind-init]").attr('bind-init'));
+
+	function triggetAllEvents(content) {
+		content.split("_").filter(function(item){return item}).forEach(function(item){
+			bindEvent(item);
+		});
+	}
 }

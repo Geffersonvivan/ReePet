@@ -22,7 +22,7 @@ if($action == 'create'){
 	echo $code;
 }
 
-if($action == "recoveredCode"){
+if($action == "forgetedCode"){
 	$action = false;
 	$email = $_POST['email'];
 	$db = createDb();

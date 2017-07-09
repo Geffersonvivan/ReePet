@@ -48,7 +48,7 @@
 }
 
 .input{
-  border: 1px solid #d0d0d0;
+  border: 2px solid #d0d0d0;
   display: inline-block;
   line-height: 45px;
   height: 45px;
@@ -88,6 +88,7 @@ textarea.input{
   .card__title{
     color: #ce1216;
     font-size: 28px;
+    font-weight: 600;
     margin-bottom: 1.2em;
     text-align: center;
   }
