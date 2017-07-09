@@ -61,9 +61,13 @@ function createFormAjax() {
 		var post = {};
 		$.each(inputs, function(item){
 			post[$(inputs[item]).attr('name')] = $(inputs[item]).val();
-			$(inputs[item]).val("");
+			$(inputs[item]).attr('disabled', '');
 		})
 		post.action = "create";
+		$form.find('.button')
+			.addClass('button--success')
+			.attr('disabled', '')
+			.text('Enviando...');
 		$.post('controllers/UserController.php', post)
 			.done(function(data){
 				if(data.existent){
@@ -84,14 +88,27 @@ function searchCodeFormAjax() {
 		var post = {};
 		$.each(inputs, function(item){
 			post[$(inputs[item]).attr('name')] = $(inputs[item]).val();
+			$(inputs[item]).attr('disabled', '');
 		})
 		post.action = "searchCode";
+		$form.find('.button')
+			.addClass('button--success')
+			.attr('disabled', '')
+			.text('Enviando...');
 		$.post('controllers/UserController.php', post)
 			.done(function(data){
-				data.whatsappLink = "https://api.whatsapp.com/send?1=pt_BR&phone=55" + (data.whatsapp.replace(/\s|[(]|[)]|[-]/g, ""));
-				data.emailLink = "mailto:" + data.email;
-				console.log(data.whatsappLink);
-				bindEvent("searchCodeDone", data)
+				if(data){
+					data.whatsappLink = "https://api.whatsapp.com/send?1=pt_BR&phone=55" + (data.whatsapp.replace(/\s|[(]|[)]|[-]/g, ""));
+					data.emailLink = "mailto:" + data.email;
+					bindEvent("searchCodeDone", data)
+				}else{
+					bindEvent("searchCodeNotExist", data)
+				}
+				inputs.removeAttr('disabled');
+				$form.find('.button')
+				.removeAttr('disabled')
+				.removeClass('button--success')
+				.text('Pesquisar');
 			});
 	});
 }
@@ -150,7 +167,6 @@ function bindEvent(event, data){
 		var content = $(this).attr("bind-param").replace("_"+event+"_:", "");
 		var param = content.split(":")[0];
 		var value = getBind(content.replace(/^.+:/,""));
-		console.log(param, value);
 		$(this).attr(param, value);
 	});
 

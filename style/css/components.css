@@ -36,7 +36,7 @@
 .button--outline{
   background-color: transparent;
   border: 2px solid #ce1216;
-  color: #565655;
+  color: #565655 !important;
 }
 
 .button--outline:hover,
