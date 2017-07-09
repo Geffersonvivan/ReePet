@@ -70,6 +70,7 @@ function searchCodeFormAjax() {
 		$.post('controllers/UserController.php', post)
 			.done(function(data){
 				data.whatsappLink = "https://api.whatsapp.com/send?1=pt_BR&phone=55" + (data.whatsapp.replace(/\s|[(]|[)]|[-]/g, ""));
+				data.emailLink = "mailto:" + data.email;
 				console.log(data.whatsappLink);
 				bindEvent("searchCodeDone", data)
 			});

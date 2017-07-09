@@ -83,7 +83,7 @@
 						<div class="card__description">
 							<p>Use esse código na coleira do seu Pet, assim, se você o perder, alguém usará o código para entrar em contato com você.</p>
               <p>Seu código é:</p>
-              <h1 bind-print="createUserDone">code</h1>
+              <h1 bind-print="_createUserDone_">code</h1>
 						</div>
 					</div>
           <div class="card" bind-show="_showForgetCode_" bind-hide="_createUserStart_">
@@ -123,7 +123,7 @@
                   <b>Nome</b>: <span bind-print="_searchCodeDone_">name</span><br>
                   <b>Facebook</b>: <span bind-print="_searchCodeDone_">facebook</span><br>
                   <b>Whatsapp</b>: <a target="_blank" bind-param="_searchCodeDone_:href:whatsappLink"><span bind-print="_searchCodeDone_">whatsapp</span></a><br>
-                  <b>E-mail</b>: <span bind-print="_searchCodeDone_">email</span>
+                  <b>E-mail</b>: <a bind-param="_searchCodeDone_:href:emailLink"><span bind-print="_searchCodeDone_">email</span></a>
                 </div>
 							</div>
 						</div>
