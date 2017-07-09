@@ -22,7 +22,9 @@ onload = function(){
 	searchCodeFormAjax();
 	bindEvents();
 	forgetedCodeForm();
-	$("#loading").fadeOut(300);
+	setTimeout(function(){
+		$("#loading").fadeOut(300);
+	}, 1000);
 }
 
 function headerScroll() {
