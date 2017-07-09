@@ -57,11 +57,7 @@ body{
 		line-height: 1.2;
 	}
 
-	@media (max-width: 767px){
-		.main-header{
-			background-position: 70%;
-		}
-
+	@media (max-width: 991px){
 		.main-header__section{
 			height: auto;
 			font-size: 28px;
@@ -69,9 +65,17 @@ body{
 
 		.main-header__section .container{
 			height: auto;
+			width: 100%;
+			text-align: center;
 			background-color: rgba(255, 255, 255, .7);
 			padding-top: 15px;
 			padding-bottom: 15px;
+		}
+	}
+
+	@media (max-width: 767px){
+		.main-header{
+			background-position: 70%;
 		}
 
 		.main-header__nav--fixed{
