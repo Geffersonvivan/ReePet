@@ -11,6 +11,8 @@
   line-height: 40px;
   text-align: center;
   transition: .3s all ease;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .button[disabled]{

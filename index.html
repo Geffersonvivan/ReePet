@@ -86,7 +86,7 @@
 					<div class="card" bind-init="_createUserStart_" bind-show="_createUserStart_" bind-hide="_createUserDone_showForgetCode_createUseExisting_">
 						<h3 class="card__title">Cadastrar código</h3>
 						<div class="card__description">
-							<p>Preencha e receba etiqueta via e-mail.</p>
+							<p>Cadastre-se para obter um código.</p>
 						</div>
 						<form method="post" class="form" id="create-form">
 							<input type="text" name="name" placeholder="Nome" class="input input--full-width" required>
@@ -105,6 +105,9 @@
 							<p>Use esse código na coleira do seu Pet, assim, se você o perder, alguém usará o código para entrar em contato com você.</p>
               <p>Seu código é:</p>
               <h1 bind-print="_createUserDone_">code</h1>
+              <br><br>
+              <button class="button" id="print-code">Imprimir código</button>
+              <iframe src="print.html" id="createCodePrint" bind-show=""></iframe>
 						</div>
 					</div>
           <div class="card" bind-show="_createUseExisting_">
@@ -226,7 +229,6 @@
   <!-- js -->
   <script src="style/js/jquery.js"></script>
   <script src="style/js/jquery.smooth-scroll.min.js"></script>
-  <script src="style/js/jquery.dlmenu.js"></script>
   <script src="style/js/jquery.mask.min.js"></script>
   <script src="style/js/wow.min.js"></script>
   <script src="style/js/custom.js"></script>

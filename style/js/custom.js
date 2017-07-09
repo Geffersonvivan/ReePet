@@ -31,6 +31,11 @@ function initialElements(){
 		$("#loading").fadeOut(300);
 		new WOW().init();
 	}, 1000);
+
+	$("#print-code").bind('click', function(){
+		$("#createCodePrint")[0].contentWindow.print();
+	});
+
 }
 
 function headerScroll() {
@@ -64,8 +69,9 @@ function createFormAjax() {
 				if(data.existent){
 					bindEvent("createUseExisting", data);
 				}else{
-					bindEvent("createUserDone", data)
+					bindEvent("createUserDone", data);
 				}
+				$("#createCodePrint").contents().find("#codigo").text(data.code);
 			});
 	});
 }
