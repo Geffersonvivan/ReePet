@@ -1,5 +1,7 @@
 (function ($) {
-	$('a[href^=#]').smoothScroll();
+	$('a[href^=#]').smoothScroll({
+		offset: -80,
+	});
 })(jQuery);
 
 $(function(){
