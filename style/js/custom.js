@@ -1,7 +1,5 @@
 (function ($) {
-	$('ul.dl-menu li a').smoothScroll();
-
-	new WOW().init();
+	$('a[href^=#]').smoothScroll();
 })(jQuery);
 
 $(function(){
