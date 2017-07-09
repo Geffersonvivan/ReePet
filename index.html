@@ -144,7 +144,7 @@
 						<div id="search-code-content">
 							<div>
 								<form class="form" method="post" id="search-code-form">
-									<input type="text" name="code" class="input input--full-width">
+									<input type="text" name="code" class="input input--full-width" placeholder="Código: 7kgt8er">
 									<button type="submit" class="button button--full-width">Pesquisar</button>
 								</form>
                 <div id="search-code-value" bind-show="_searchCodeDone_">
@@ -190,7 +190,7 @@
 	</section>
 
 	<!-- Contato -->
-	<section class="section-area" id="fale-conosco"s>
+	<section class="section-area" id="fale-conosco">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 wow fadeInLeft">
@@ -202,13 +202,13 @@
 					</p>
 				</div>
 				<div class="col-md-7 col-md-offset-1 wow fadeInRight">
-					<form class="form text-right" method="post">
-						<input type="text" name="name" class="input input--full-width" placeholder="Nome">
-						<input type="email" name="email" class="input input--full-width" placeholder="Email">
-						<input type="text" name="subject" class="input input--full-width" placeholder="Assunto">
-						<textarea type="text" name="subject" class="input input--full-width" placeholder="Mensagem" rows="4"></textarea>
+					<form class="form text-right" method="post" id="contact-form">
+						<input type="text" name="name" class="input input--full-width" placeholder="Nome" required>
+						<input type="email" name="email" class="input input--full-width" placeholder="Email" required>
+						<input type="text" name="subject" class="input input--full-width" placeholder="Assunto" required>
+						<textarea type="text" name="message" class="input input--full-width" placeholder="Mensagem" required rows="4"></textarea>
 						<div class="row">
-							<div class="col-md-5 pull-right">
+							<div class="col-md-5 col-sm-6 col-xs-12 pull-right">
 								<button type="submit" name="action" value="contact" class="button button--full-width">Cadastrar</button>
 							</div>
 						</div>

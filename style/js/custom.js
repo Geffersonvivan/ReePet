@@ -5,7 +5,7 @@
 })(jQuery);
 
 $(function(){
-	var SPMaskBehavior = function (val) {
+	var SPMaskBehavior = function(val) {
 		return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
 	},
 	spOptions = {
@@ -22,6 +22,11 @@ onload = function(){
 	searchCodeFormAjax();
 	bindEvents();
 	forgetedCodeForm();
+	contactFormAjax();
+	initialElements();
+}
+
+function initialElements(){
 	setTimeout(function(){
 		$("#loading").fadeOut(300);
 		new WOW().init();
@@ -29,7 +34,7 @@ onload = function(){
 }
 
 function headerScroll() {
-	var checkAndUpdateHeaderClass = function(){
+	var checkAndUpdateHeaderClass = function() {
 		var scrollTop = pageYOffset;
 		if(scrollTop){
 			document.querySelector(".main-header__nav").classList.add('main-header__nav--fixed');
@@ -45,7 +50,7 @@ function headerScroll() {
 
 function createFormAjax() {
 	var $form = $("#create-form");
-	$form.on('submit', function(event){
+	$form.on('submit', function(event) {
 		event.preventDefault();
     var inputs = $form.find("[name]");
 		var post = {};
@@ -67,7 +72,7 @@ function createFormAjax() {
 
 function searchCodeFormAjax() {
 	var $form = $("#search-code-form");
-	$form.on('submit', function(event){
+	$form.on('submit', function(event) {
 		event.preventDefault();
     var inputs = $form.find("[name]");
 		var post = {};
@@ -87,7 +92,7 @@ function searchCodeFormAjax() {
 
 function forgetedCodeForm(){
 	var $form = $("#forgeted-code-form");
-	$form.on('submit', function(event){
+	$form.on('submit', function(event) {
 		event.preventDefault();
     var inputs = $form.find("[name]");
 		var post = {};
@@ -100,6 +105,32 @@ function forgetedCodeForm(){
 				bindEvent("showForgetCodeDone", data)
 			});
 	});
+}
+
+function contactFormAjax() {
+	var $form = $("#contact-form");
+	$form.on('submit', function(event) {
+		event.preventDefault();
+		var inputs = $form.find("[name]");
+		var post = {};
+		$.each(inputs, function(item){
+			post[$(inputs[item]).attr('name')] = $(inputs[item]).val();
+			$(inputs[item]).attr('disabled', '');
+		})
+		post.action = "contact";
+		$form.find('.button')
+			.addClass('button--success')
+			.attr('disabled', '')
+			.text('Enviando...');
+		$.post('controllers/UserController.php', post)
+			.done(function(data){
+				$form.find('.button')
+					.text("Enviado com sucesso!")
+					.css('opacity', '1')
+				inputs.val("");
+				bindEvent("contactDone", data)
+			});
+	})
 }
 
 function bindEvent(event, data){

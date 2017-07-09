@@ -32,7 +32,7 @@ if($action == 'create'){
 		$sth->bindValue(':whatsapp', $whatsapp);
 		$sth->bindValue(':email', $email);
 		$sth->execute();
-		sendEmail("email@gmail.com", "Name", "Reepet | Novo cadastro!", "
+		sendEmail("email@domain.com", "emailerName", "Reepet | Novo cadastro!", "
 			<p>Um novo úsuario acabou de se cadastrar no Reepet:</p>
 			<b>Nome:</b> $name <br>
 			<b>Facebook:</b> $facebook <br>
@@ -71,6 +71,20 @@ if($action == 'searchCode'){
 	echo json_encode($userWanted);
 }
 
+if($action == 'contact') {
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$subject = $_POST['subject'];
+	$message = $_POST['message'];
+	sendEmail("email@domain.com", "emailerName", "ReePet | Contato", "
+		<p>Alguém entrou em contato no site ReePet:</p>
+		<b>Nome:</b> $name <br>
+		<b>E-mail:</b> $email <br>
+		<b>Assunto:</b> $subject <br>
+		<b>Mensagem:</b> $message
+	");
+}
+
 function createDb(){
 	return new PDO('mysql:host=reepet_mysql_1;dbname=reepet', 'root', 'root');
 }
@@ -98,7 +112,6 @@ function codeGenerate(){
 }
 
 function sendEmail($destiny, $name, $assunto, $message) {
-	return 0;
 	require_once('../phpmail/PHPMailerAutoload.php');
 
 	$mail = new PHPMailer();
@@ -108,13 +121,13 @@ function sendEmail($destiny, $name, $assunto, $message) {
 	$mail->Port = 587;
 	$mail->Mailer = "smtp";
 	$mail->Host = "smtp.gmail.com";
-	$mail->Username = "email@gmail.com";
-	$mail->Password = "senha";
-	$mail->From = "email@gmail.com";
-	$mail->FromName = "Name";
+	$mail->Username = "email@domain.com";
+	$mail->Password = "password";
+	$mail->From = "email@domain.com";
+	$mail->FromName = "emailerName";
 	$mail->CharSet = "UTF-8";
-	$mail->SetFrom('email@gmail.com', 'Name');
-	$mail->addAddress('email@gmail.com', 'Name');
+	$mail->SetFrom('email@domain.com', 'Name');
+	$mail->addAddress('email@domain.com', 'Name');
 
 	$mail->AddAddress($destiny, $name);
 	$mail->Subject = $assunto;
