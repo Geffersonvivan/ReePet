@@ -24,7 +24,7 @@ onload = function(){
 
 function headerScroll() {
 	var checkAndUpdateHeaderClass = function(){
-		var scrollTop = document.body.scrollTop;
+		var scrollTop = pageYOffset;
 		if(scrollTop){
 			document.querySelector(".main-header__nav").classList.add('main-header__nav--fixed');
 		}else{

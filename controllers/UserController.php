@@ -45,7 +45,7 @@ if($action == 'searchCode'){
 }
 
 function createDb(){
-	return new PDO('mysql:host=reepet_mysql_1;dbname=reepet', 'root', 'server897');
+	return new PDO('mysql:host=reepet_mysql_1;dbname=reepet', 'root', 'root');
 }
 
 function getRandomCode(){
