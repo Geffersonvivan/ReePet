@@ -13,12 +13,24 @@ if($action == 'create'){
 	$db = createDb();
 	$sth = $db->prepare("INSERT INTO users (code, name, facebook, whatsapp, email) VALUES (:code, :name, :facebook, :whatsapp, :email)");
 	$code = codeGenerate();
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$facebook = $_POST['facebook'];
+	$whatsapp = $_POST['whatsapp'];
 	$sth->bindValue(':code', $code);
-	$sth->bindValue(':name', $_POST['name']);
-	$sth->bindValue(':facebook', $_POST['facebook']);
-	$sth->bindValue(':whatsapp', $_POST['whatsapp']);
-	$sth->bindValue(':email', $_POST['email']);
+	$sth->bindValue(':name', $name);
+	$sth->bindValue(':facebook', $facebook);
+	$sth->bindValue(':whatsapp', $whatsapp);
+	$sth->bindValue(':email', $email);
 	$sth->execute();
+	sendEmail("email@gmail.com", "Name", "Reepet | Novo cadastro!", "
+		<p>Um novo úsuario acabou de se cadastrar no Reepet:</p>
+		<b>Nome:</b> $name <br>
+		<b>Facebook:</b> $facebook <br>
+		<b>Whatsapp:</b> $whatsapp <br>
+		<b>Email:</b> $email <br>
+		<b>Código:</b> $code
+	");
 	echo $code;
 }
 
@@ -68,4 +80,34 @@ function codeGenerate(){
   	$codeIsDefined = $sth->rowCount();
   } while ($codeIsDefined);
   return $code;
+}
+
+function sendEmail($destiny, $name, $assunto, $message) {
+	require_once('../phpmail/PHPMailerAutoload.php');
+
+	$mail = new PHPMailer();
+	$mail->IsHTML(true);
+	$mail->IsSMTP();
+	$mail->SMTPAuth = true;
+	$mail->Port = 587;
+	$mail->Mailer = "smtp";
+	$mail->Host = "smtp.gmail.com";
+	$mail->Username = "email@gmail.com";
+	$mail->Password = "senha";
+	$mail->From = "email@gmail.com";
+	$mail->FromName = "Name";
+	$mail->CharSet = "UTF-8";
+	$mail->SetFrom('email@gmail.com', 'Name');
+	$mail->addAddress('email@gmail.com', 'Name');
+
+	$mail->AddAddress($destiny, $name);
+	$mail->Subject = $assunto;
+
+	$mail->MsgHTML($message);
+
+	if (!$mail->Send()) {
+		return 0;
+	} else {
+		return 1;
+	}
 }
