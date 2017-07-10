@@ -2,19 +2,24 @@
 <html>
 
 <head>
-  <title>ReePet</title>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700" rel="stylesheet">
-  <!-- css -->
-  <link href="style/css/bootstrap.min.css" rel="stylesheet">
-  <link href="style/css/animate.css" rel="stylesheet">
-  <link href="style/color/default.css" rel="stylesheet">
-  <script src="style/js/modernizr.custom.js"></script>
-  <link href="style/css/fontello.css" rel="stylesheet">
-  <link href="style/css/style.css" rel="stylesheet">
-  <link href="style/css/components.css" rel="stylesheet">
-  <link href="style/css/helpers.css" rel="stylesheet">
+	<title>ReePet</title>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700" rel="stylesheet">
+	<!-- css -->
+	<link href="style/css/bootstrap.min.css" rel="stylesheet">
+	<link href="style/css/animate.css" rel="stylesheet">
+	<link href="style/color/default.css" rel="stylesheet">
+	<script src="style/js/modernizr.custom.js"></script>
+	<link href="style/fontello/css/fontello.css" rel="stylesheet">
+	<link href="style/css/style.css" rel="stylesheet">
+	<link href="style/css/components.css" rel="stylesheet">
+	<link href="style/css/helpers.css" rel="stylesheet">
+	<link href="style/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+	<link rel="icon" href="style/img/icon.png">
+	<meta name="theme-color" content="#cc060f">
+
 </head>
 
 <body>
@@ -68,8 +73,8 @@
 				<span class="primary-color"><b>Ree</b>ncontrar</span> seu Pet de <br>
 				uma forma simples e fácil! <br>
         <div class="main-header__section__steps">
-          Cadastre-se -> Imprima o código -> Fixe na coleira. <br>
-          Encontrou um Pet? -> Digite o código -> Dê a boa notícia.
+          <small><b>Cadastre-se <small class="icon-right"></small> Imprima o código <small class="icon-right"></small> Fixe na coleira.</b></small> <br>
+          <small><b>Encontrou um Pet? <small class="icon-right"></small> Digite o código <small class="icon-right"></small> Dê a boa notícia.</b></small>
         </div>
 				<div class="row">
 					<div class="col-md-4">
@@ -90,12 +95,13 @@
 						<h3 class="card__title">Cadastrar código</h3>
 						<div class="card__description">
 							<p>Cadastre-se para obter um código.</p>
+							<p><small><b>* Campo obrigatório</b></small></p>
 						</div>
 						<form method="post" class="form" id="create-form">
-							<input type="text" name="name" placeholder="Nome" class="input input--full-width" required>
+							<input type="text" name="name" placeholder="* Nome" class="input input--full-width" required>
 							<input type="text" name="facebook" placeholder="Facebook" class="input input--full-width">
 							<input type="text" name="whatsapp" placeholder="Whatsapp" class="input input--full-width sp_celphones">
-							<input type="text" name="email" placeholder="E-mail" class="input input--full-width" required>
+							<input type="email" name="email" placeholder="* E-mail" class="input input--full-width" required>
 							<button type="submit" class="button button--full-width">Cadastrar</button>
 						</form>
 						<div class="text-right">
@@ -109,8 +115,7 @@
               <p>Seu código é:</p>
               <h1 bind-print="_createUserDone_:code"></h1>
               <br><br>
-              <button class="button" id="print-code">Imprimir código</button>
-              <iframe src="print.html" id="createCodePrint" bind-show=""></iframe>
+              <button class="button print-frame-code">Imprimir código</button>
 						</div>
 					</div>
           <div class="card" bind-show="_createUseExisting_">
@@ -119,6 +124,8 @@
 							<p>Esse e-mail já foi cadastrado, você pode conferir as informações usando o seu código.</p>
               <p>Seu código é:</p>
               <h1 bind-print="_createUseExisting_:code"></h1>
+							<br>
+							<button class="button print-frame-code">Imprimir código</button>
 						</div>
 					</div>
           <div class="card" bind-show="_showForgetCode_" bind-hide="_createUserStart_">
@@ -127,16 +134,18 @@
 							<p>Digite o seu e-mail abaixo para recuperar o seu código.</p>
               <br><br>
               <form class="form" method="post" id="forgeted-code-form" bind-hide="_showForgetCodeDone_">
-                <input type="text" name="email" class="input input--full-width" placeholder="E-mail">
+                <input type="text" name="email" class="input input--full-width" placeholder="E-mail" required>
                 <button type="submit" class="button button--full-width">Encontrar</button>
               </form>
               <div bind-show="_showForgetCodeDone_">
                 <p>Seu código é:</p>
                 <h1 bind-print="_showForgetCodeDone_:code"></h1>
+                <br>
+                <button class="button print-frame-code">Imprimir código</button>
               </div>
               <br><br>
               <div class="text-right">
-  							<a bind-click="_createUserStart_">Fazer cadastro</a>
+  							<a bind-click="_createUserStart_">Voltar</a>
   						</div>
 						</div>
 					</div>
@@ -150,7 +159,7 @@
 						<div id="search-code-content">
 							<div>
 								<form class="form" method="post" id="search-code-form">
-									<input type="text" name="code" class="input input--full-width" placeholder="Código: 7kgt8er">
+									<input type="text" name="code" class="input input--full-width" placeholder="Exemplo: 7kgt8er">
 									<button type="submit" class="button button--full-width">Pesquisar</button>
 								</form>
                 <div id="search-code-value" bind-show="_searchCodeDone_" bind-hide="_searchCodeNotExist_">
@@ -172,6 +181,9 @@
 		</div>
 	</section>
 
+  <!-- Area da impressão -->
+  <iframe src="print.html" id="printCodeFrame" bind-show=""></iframe>
+
 	<!-- Como funciona -->
 	<section id="como-funciona" class="section-area text-white bg-img-red-family">
 		<div class="container">
@@ -180,13 +192,16 @@
 					<div id="how-works-area">
 						<div class="wow fadeInLeft">
 							<h2 class="section-area__title">Como <b>funciona</b></h2>
-							<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Cure.</p>
-							<div class="row">
-								<div class="col-md-8">
-									<br><br>
-									<a class="button button--outline button--white button--full-width" href="#codigo">Estou interessado</a>
-								</div>
-							</div>
+							<p>
+								<b class="icon-guidedog"></b> Cadastre-se <small class="icon-right"></small> Imprima o código <small class="icon-right"></small> Fixe na coleira.<br><br>
+								<b class="icon-guidedog"></b> Encontrou um Pet? <small class="icon-right"></small> Digite o código <small class="icon-right"></small> Dê a boa notícia ao seu dono.
+							</p>
+							<!--<div class="row">-->
+								<!--<div class="col-md-8">-->
+									<!--<br><br>-->
+									<!--<a class="button button--outline button--white button--full-width" href="#codigo">Estou interessado</a>-->
+								<!--</div>-->
+							<!--</div>-->
 						</div>
 					</div>
 				</div>
@@ -206,20 +221,25 @@
 				<div class="col-md-4 wow fadeInLeft">
 					<h2 class="section-area__title primary-color">Envie seu <b>contato</b></h2>
 					<p>
-						Dúvidas, solicitações e assuntos gerais <br>
+						Dúvidas, solicitações e assuntos gerais. <br>
 						Entre em contato conosco que retornamos <br>
-						o mais breve possível
+						o mais breve possível. <br>
+						<p><b><small>* Campo obrigatório</small></b></p>
 					</p>
+					<div class="">
+						<br>
+						<a href="https://www.facebook.com/reencontreseupet/" target="_blank" class="button button--outline primary-color" style="font-size: 25px;"><span class="fa fa-facebook"></span></a>
+					</div>
 				</div>
 				<div class="col-md-7 col-md-offset-1 wow fadeInRight">
 					<form class="form text-right" method="post" id="contact-form">
-						<input type="text" name="name" class="input input--full-width" placeholder="Nome" required>
-						<input type="email" name="email" class="input input--full-width" placeholder="Email" required>
-						<input type="text" name="subject" class="input input--full-width" placeholder="Assunto" required>
-						<textarea type="text" name="message" class="input input--full-width" placeholder="Mensagem" required rows="4"></textarea>
+						<input type="text" name="name" class="input input--full-width" placeholder="* Nome" required>
+						<input type="email" name="email" class="input input--full-width" placeholder="* Email" required>
+						<input type="text" name="subject" class="input input--full-width" placeholder="* Assunto" required>
+						<textarea type="text" name="message" class="input input--full-width" placeholder="* Mensagem" required rows="4"></textarea>
 						<div class="row">
 							<div class="col-md-5 col-sm-6 col-xs-12 pull-right">
-								<button type="submit" name="action" value="contact" class="button button--full-width">Cadastrar</button>
+								<button type="submit" name="action" value="contact" class="button button--full-width">Enviar</button>
 							</div>
 						</div>
 					</form>
@@ -239,6 +259,32 @@
   <script src="style/js/jquery.mask.min.js"></script>
   <script src="style/js/wow.min.js"></script>
   <script src="style/js/custom.js"></script>
+
+	<!-- Smartsupp Live Chat script -->
+	<script type="text/javascript">
+	var _smartsupp = _smartsupp || {};
+	_smartsupp.key = 'a6ba72bcb0f1da48b75d4571cd1640526f3334e5';
+	window.smartsupp||(function(d) {
+		var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+		s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+		c.type='text/javascript';c.charset='utf-8';c.async=true;
+		c.src='//www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+	})(document);
+	</script>
+
+	<!-- Analytics -->
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58989280-31', 'auto');
+  ga('send', 'pageview');
+
+	</script>
+
+
 </body>
 
 </html>

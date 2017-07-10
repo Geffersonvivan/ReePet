@@ -5,7 +5,7 @@ body{
 
 .main-header{
 	background-image: url(../img/banner.jpg);
-	background-position: 20%;
+	background-position: 10%;
 	background-size: cover;
 	height: 100vh;
 }
@@ -102,6 +102,7 @@ body{
 /* ID's */
 #search-code-content{
 	height: 300px;
+	margin-bottom: 33px;
 	display: flex;
 	align-items: center;
 }
@@ -117,4 +118,10 @@ body{
 
 #how-works-area h2{
 	margin-top: 0;
+}
+
+@media (max-width: 991px){
+	#search-code-content{
+		margin-bottom: 33px;
+	}
 }

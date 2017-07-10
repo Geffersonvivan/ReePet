@@ -24,9 +24,19 @@ if($sth->rowCount()){
   $sth->execute();
   $users = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-  $sth = $db->prepare("SELECT count(*) as quantity FROM users");
+	$sth = $db->prepare("SELECT * FROM info");
   $sth->execute();
-  $quantity = $sth->fetch(PDO::FETCH_ASSOC)['quantity'];
+  $searchQuantity = $sth->fetch(PDO::FETCH_ASSOC)['searchQuantity'];
+
+  $sth = $db->prepare("SELECT count(*) as quantity, sum(searchs) as successQuantity FROM users");
+  $sth->execute();
+	$result = $sth->fetch(PDO::FETCH_ASSOC);
+  $usersQuantity = $result['quantity'];
+	$searchSucessQuantity = $result['successQuantity'];
+
+	$sth = $db->prepare("SELECT searchQuantity FROM info");
+  $sth->execute();
+	$searchQuantity = $sth->fetch(PDO::FETCH_ASSOC)['searchQuantity'];
 }else{
   echo "<h2>Falha na autenticação</h2>";
   exit();
@@ -45,12 +55,32 @@ if($sth->rowCount()){
     <div class="container">
       <h1>Painel administrativo</h1>
       <hr>
-      <div class="panel panel-default">
-        <div class="panel-heading">Quantidade de usuários</div>
-        <div class="panel-body">
-            <?php echo $quantity ?>
-        </div>
-      </div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">Quantidade de usuários</div>
+						<div class="panel-body">
+							<?php echo $usersQuantity ?>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">Buscas bem sucedidadas</div>
+						<div class="panel-body">
+							<?php echo $searchSucessQuantity ?>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">Buscas fracasadas</div>
+						<div class="panel-body">
+							<?php echo $searchQuantity - $searchSucessQuantity ?>
+						</div>
+					</div>
+				</div>
+			</div>
       <table class="table table-bordered">
         <thead>
           <tr>

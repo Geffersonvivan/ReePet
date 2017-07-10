@@ -66,6 +66,9 @@ if($action == 'searchCode'){
 	$code = $_POST['code'];
 	$db = createDb();
 
+	$sth = $db->prepare("UPDATE info SET searchQuantity = searchQuantity+1");
+	$sth->execute();
+
 	$sth = $db->prepare("UPDATE users SET searchs = searchs+1 WHERE code = :code");
 	$sth->bindValue(':code', $code);
 	$sth->execute();
