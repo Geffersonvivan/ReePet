@@ -63,7 +63,12 @@ if($action == "forgetedCode"){
 if($action == 'searchCode'){
 	$code = $_POST['code'];
 	$db = createDb();
-	$sth = $db->prepare("SELECT * FROM users WHERE code = :code");
+
+	$sth = $db->prepare("UPDATE users SET searchs = searchs+1 WHERE code = :code");
+	$sth->bindValue(':code', $code);
+	$sth->execute();
+
+	$sth = $db->prepare("SELECT name, facebook, whatsapp, email FROM users WHERE code = :code");
 	$sth->bindValue(':code', $code);
 	$sth->execute();
 	$userWanted = $sth->fetch(PDO::FETCH_ASSOC);

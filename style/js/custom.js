@@ -98,17 +98,21 @@ function searchCodeFormAjax() {
 		$.post('controllers/UserController.php', post)
 			.done(function(data){
 				if(data){
-					data.whatsappLink = "https://api.whatsapp.com/send?1=pt_BR&phone=55" + (data.whatsapp.replace(/\s|[(]|[)]|[-]/g, ""));
+					if(data.whatsapp){
+						data.whatsappLink = "https://api.whatsapp.com/send?1=pt_BR&phone=55" + (data.whatsapp.replace(/\s|[(]|[)]|[-]/g, ""));
+					}else{
+						data.whatsappLink = '';
+					}
 					data.emailLink = "mailto:" + data.email;
-					bindEvent("searchCodeDone", data)
+					bindEvent("searchCodeDone", data);
 				}else{
-					bindEvent("searchCodeNotExist", data)
+					bindEvent("searchCodeNotExist", data);
 				}
 				inputs.removeAttr('disabled');
 				$form.find('.button')
-				.removeAttr('disabled')
-				.removeClass('button--success')
-				.text('Pesquisar');
+					.removeAttr('disabled')
+					.removeClass('button--success')
+					.text('Pesquisar');
 			});
 	});
 }
@@ -161,7 +165,7 @@ function bindEvent(event, data){
 	$("[bind-show*=_"+event+"_]").show();
 	$("[bind-hide*=_"+event+"_]").hide();
 	$("[bind-print*=_"+event+"_]").each(function(){
-		$(this).html(getBind($(this).text()));
+		$(this).html(getBind($(this).attr('bind-print').replace("_"+event+"_:", "")));
 	});
 	$("[bind-param*=_"+event+"_]").each(function(){
 		var content = $(this).attr("bind-param").replace("_"+event+"_:", "");

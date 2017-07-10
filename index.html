@@ -104,7 +104,7 @@
 						<div class="card__description">
 							<p>Use esse código na coleira do seu Pet, assim, se você o perder, alguém usará o código para entrar em contato com você.</p>
               <p>Seu código é:</p>
-              <h1 bind-print="_createUserDone_">code</h1>
+              <h1 bind-print="_createUserDone_:code"></h1>
               <br><br>
               <button class="button" id="print-code">Imprimir código</button>
               <iframe src="print.html" id="createCodePrint" bind-show=""></iframe>
@@ -115,7 +115,7 @@
 						<div class="card__description">
 							<p>Esse e-mail já foi cadastrado, você pode conferir as informações usando o seu código.</p>
               <p>Seu código é:</p>
-              <h1 bind-print="_createUseExisting_">code</h1>
+              <h1 bind-print="_createUseExisting_:code"></h1>
 						</div>
 					</div>
           <div class="card" bind-show="_showForgetCode_" bind-hide="_createUserStart_">
@@ -129,7 +129,7 @@
               </form>
               <div bind-show="_showForgetCodeDone_">
                 <p>Seu código é:</p>
-                <h1 bind-print="_showForgetCodeDone_">code</h1>
+                <h1 bind-print="_showForgetCodeDone_:code"></h1>
               </div>
               <br><br>
               <div class="text-right">
@@ -152,10 +152,10 @@
 								</form>
                 <div id="search-code-value" bind-show="_searchCodeDone_" bind-hide="_searchCodeNotExist_">
                   <br>
-                  <b>Nome</b>: <span bind-print="_searchCodeDone_">name</span><br>
-                  <b>Facebook</b>: <span bind-print="_searchCodeDone_">facebook</span><br>
-                  <b>Whatsapp</b>: <a target="_blank" bind-param="_searchCodeDone_:href:whatsappLink"><span bind-print="_searchCodeDone_">whatsapp</span></a><br>
-                  <b>E-mail</b>: <a bind-param="_searchCodeDone_:href:emailLink"><span bind-print="_searchCodeDone_">email</span></a>
+                  <b>Nome</b>: <span bind-print="_searchCodeDone_:name"></span><br>
+                  <b>Facebook</b>: <span bind-print="_searchCodeDone_:facebook">book</span><br>
+                  <b>Whatsapp</b>: <a target="_blank" bind-param="_searchCodeDone_:href:whatsappLink"><span bind-print="_searchCodeDone_:whatsapp"></span></a><br>
+                  <b>E-mail</b>: <a bind-param="_searchCodeDone_:href:emailLink"><span bind-print="_searchCodeDone_:email"></span></a>
                 </div>
                 <div id="search-code-value" bind-show="_searchCodeNotExist_" bind-hide="_searchCodeDone_s">
                   <h2>Falha ao encontrar o código:</h2>
