@@ -101,7 +101,8 @@ body{
 
 /* ID's */
 #search-code-content{
-	height: 334px;
+	height: 300px;
+	margin-bottom: 33px;
 	display: flex;
 	align-items: center;
 }
@@ -117,4 +118,10 @@ body{
 
 #how-works-area h2{
 	margin-top: 0;
+}
+
+@media (max-width: 991px){
+	#search-code-content{
+		margin-bottom: 33px;
+	}
 }
