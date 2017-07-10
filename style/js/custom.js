@@ -32,8 +32,8 @@ function initialElements(){
 		new WOW().init();
 	}, 1000);
 
-	$("#print-code").bind('click', function(){
-		$("#createCodePrint")[0].contentWindow.print();
+	$(".print-frame-code").bind('click', function(){
+		$("#printCodeFrame")[0].contentWindow.print();
 	});
 
 }
@@ -75,7 +75,7 @@ function createFormAjax() {
 				}else{
 					bindEvent("createUserDone", data);
 				}
-				$("#createCodePrint").contents().find("#codigo").text(data.code);
+				$("#printCodeFrame").contents().find("#codigo").text(data.code);
 			});
 	});
 }
@@ -129,7 +129,8 @@ function forgetedCodeForm(){
 		post.action = "forgetedCode";
 		$.post('controllers/UserController.php', post)
 			.done(function(data){
-				bindEvent("showForgetCodeDone", data)
+				bindEvent("showForgetCodeDone", {code: data})
+				$("#printCodeFrame").contents().find("#codigo").text(data.code);
 			});
 	});
 }

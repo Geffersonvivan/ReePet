@@ -109,8 +109,7 @@
               <p>Seu código é:</p>
               <h1 bind-print="_createUserDone_:code"></h1>
               <br><br>
-              <button class="button" id="print-code">Imprimir código</button>
-              <iframe src="print.html" id="createCodePrint" bind-show=""></iframe>
+              <button class="button print-frame-code">Imprimir código</button>
 						</div>
 					</div>
           <div class="card" bind-show="_createUseExisting_">
@@ -127,16 +126,18 @@
 							<p>Digite o seu e-mail abaixo para recuperar o seu código.</p>
               <br><br>
               <form class="form" method="post" id="forgeted-code-form" bind-hide="_showForgetCodeDone_">
-                <input type="text" name="email" class="input input--full-width" placeholder="E-mail">
+                <input type="text" name="email" class="input input--full-width" placeholder="E-mail" required>
                 <button type="submit" class="button button--full-width">Encontrar</button>
               </form>
               <div bind-show="_showForgetCodeDone_">
                 <p>Seu código é:</p>
                 <h1 bind-print="_showForgetCodeDone_:code"></h1>
+                <br>
+                <button class="button print-frame-code">Imprimir código</button>
               </div>
               <br><br>
               <div class="text-right">
-  							<a bind-click="_createUserStart_">Fazer cadastro</a>
+  							<a bind-click="_createUserStart_">Voltar</a>
   						</div>
 						</div>
 					</div>
@@ -171,6 +172,9 @@
 			</div>
 		</div>
 	</section>
+
+  <!-- Area da impressão -->
+  <iframe src="print.html" id="printCodeFrame" bind-show=""></iframe>
 
 	<!-- Como funciona -->
 	<section id="como-funciona" class="section-area text-white bg-img-red-family">
