@@ -57,6 +57,13 @@ body{
 		line-height: 1.2;
 	}
 
+		.main-header__section__steps{
+			margin-top: 30px;
+			font-size: .55em;
+			color: #444;
+			line-height: 1.4;
+		}
+
 	@media (max-width: 991px){
 		.main-header__section{
 			height: auto;

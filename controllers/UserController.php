@@ -130,11 +130,11 @@ function sendEmail($destiny, $name, $assunto, $message) {
 	$mail->Host = "smtp.gmail.com";
 	$mail->Username = mainEmail;
 	$mail->Password = mainEmailPassword;
-	$mail->From = mainEmail;
+	$mail->From = mainReceiveEmail;
 	$mail->FromName = mainEmailName;
 	$mail->CharSet = "UTF-8";
-	$mail->SetFrom(mainEmail, 'Name');
-	$mail->addAddress(mainEmail, 'Name');
+	$mail->SetFrom(mainReceiveEmail, 'Name');
+	$mail->addAddress(mainEmailName, 'Name');
 
 	$mail->AddAddress($destiny, $name);
 	$mail->Subject = $assunto;
