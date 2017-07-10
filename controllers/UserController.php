@@ -34,7 +34,7 @@ if($action == 'create'){
 		$sth->bindValue(':whatsapp', $whatsapp);
 		$sth->bindValue(':email', $email);
 		$sth->execute();
-		sendEmail(mainEmail, mainEmailName, "Reepet | Novo cadastro!", "
+		sendEmail(mainReceiveEmail, mainEmailName, "Reepet | Novo cadastro!", "
 			<p>Um novo úsuario acabou de se cadastrar no Reepet:</p>
 			<b>Nome:</b> $name <br>
 			<b>Facebook:</b> $facebook <br>
@@ -83,7 +83,7 @@ if($action == 'contact') {
 	$email = $_POST['email'];
 	$subject = $_POST['subject'];
 	$message = $_POST['message'];
-	sendEmail(mainEmail, mainEmailName, "ReePet | Contato", "
+	sendEmail(mainReceiveEmail, mainEmailName, "ReePet | Contato", "
 		<p>Alguém entrou em contato no site ReePet:</p>
 		<b>Nome:</b> $name <br>
 		<b>E-mail:</b> $email <br>
@@ -130,11 +130,9 @@ function sendEmail($destiny, $name, $assunto, $message) {
 	$mail->Host = "smtp.gmail.com";
 	$mail->Username = mainEmail;
 	$mail->Password = mainEmailPassword;
-	$mail->From = mainReceiveEmail;
-	$mail->FromName = mainEmailName;
 	$mail->CharSet = "UTF-8";
-	$mail->SetFrom(mainReceiveEmail, 'Name');
-	$mail->addAddress(mainEmailName, 'Name');
+	$mail->SetFrom(mainReceiveEmail, mainEmailName);
+	$mail->addAddress(mainEmail, mainEmailName);
 
 	$mail->AddAddress($destiny, $name);
 	$mail->Subject = $assunto;
