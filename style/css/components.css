@@ -1,0 +1,125 @@
+.button{
+  background-color: #ce1216;
+  border: 2px solid #ce1216;
+  border-radius: 22px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  height: 45px;
+  line-height: 40px;
+  text-align: center;
+  transition: .3s all ease;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.button[disabled]{
+  opacity: .8;
+  cursor: not-allowed;
+  box-shadow: none !important;
+}
+
+.button:hover,
+.button:focus{
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 3px 7px 1px rgba(0,0,0,.7);
+}
+
+.button:active{
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 5px 14px 1px rgba(0,0,0,.7);
+}
+
+.button--outline{
+  background-color: transparent;
+  border: 2px solid #ce1216;
+  color: #565655;
+}
+
+.button--outline:hover,
+.button--outline:focus,
+.button--outline:active{
+  color: #565655;
+}
+
+.button--outline.button--white{
+  border-color: white;
+  color: white;
+}
+
+.button--success{
+  background-color: rgb(46, 209, 35);
+  border-color: rgb(46, 209, 35);
+}
+
+.button--full-width{
+  width: 100%;
+}
+
+.input{
+  border: 2px solid #d0d0d0;
+  display: inline-block;
+  line-height: 45px;
+  height: 45px;
+  border-radius: 22px;
+  padding-left: 15px;
+  padding-right: 15px;
+  transition: .3s all ease;
+}
+
+.input:focus{
+  box-shadow: 0 2px 7px 1px rgba(0,0,0,.4);
+}
+
+textarea.input{
+  line-height: 1.2;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: auto;
+}
+
+.input[disabled]{
+  cursor: not-allowed;
+}
+
+.input--full-width{
+  width: 100%;
+}
+
+.form .input,
+.form .button{
+  margin-bottom: 10px;
+}
+
+.card{
+  min-height: 525px;
+  background-color: white;
+  box-shadow: 0 5px 36px 0px rgba(0,0,0, .3);
+  padding: 45px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 767px){
+  .card{
+    padding: 15px;
+    min-height: 0;
+  }
+}
+
+  .card__title{
+    color: #ce1216;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 1.2em;
+    text-align: center;
+  }
+
+  .card__description{
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 25px;
+  }

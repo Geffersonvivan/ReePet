@@ -1,0 +1,42 @@
+.primary-color{
+  color: #ce1216;
+}
+
+.section-area{
+  padding-top: 75px;
+  padding-bottom: 80px;
+  font-size: 18px;
+}
+
+  .section-area__title{
+    font-weight: 300;
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+@media (max-width:767px){
+  .section-area{
+    padding-top: 25px;
+    padding-bottom: 30px;
+  }
+}
+
+.bg-img-red-family{
+  background-image: url("../img/background-red-family.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.text-white{
+  color: white;
+}
+
+.shadow-dp-3{
+  box-shadow: 0 4px 20px 4px rgba(0,0,0, .6);
+}
+
+
+[bind-show]{
+  display: none;
+}
