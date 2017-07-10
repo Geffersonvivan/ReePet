@@ -11,7 +11,7 @@
   <link href="style/css/animate.css" rel="stylesheet">
   <link href="style/color/default.css" rel="stylesheet">
   <script src="style/js/modernizr.custom.js"></script>
-  <link href="style/css/fontello.css" rel="stylesheet">
+  <link href="style/fontello/css/fontello.css" rel="stylesheet">
   <link href="style/css/style.css" rel="stylesheet">
   <link href="style/css/components.css" rel="stylesheet">
   <link href="style/css/helpers.css" rel="stylesheet">
@@ -49,15 +49,21 @@
               <img src="style/img/logo.png" alt="Logo Menpet" class="main-header__nav__logo img-responsive">
             </a>
 					</div>
-					<div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-8 hidden-xs">
-						<ul class="main-header__nav__list">
-							<li><a href="#codigo">Pesquisar código</a></li>
-							<li><a href="#como-funciona">Como funciona</a></li>
-							<li><a href="#fale-conosco">Fale conosco</a></li>
-						</ul>
-					</div>
+					<!--<div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-8 hidden-xs">-->
+						<!--<ul class="main-header__nav__list">-->
+							<!--&lt;!&ndash;<li><a href="#codigo">Pesquisar código</a></li>&ndash;&gt;-->
+							<!--&lt;!&ndash;<li><a href="#como-funciona">Como funciona</a></li>&ndash;&gt;-->
+							<!--<li><a href="#fale-conosco">Fale conosco</a></li>-->
+						<!--</ul>-->
+					<!--</div>-->
 					<div class="col-md-3 hidden-xs hidden-sm">
 						<a href="#codigo" type="button" class="button button--full-width button--outline">Cadastre-se</a>
+					</div>
+					<div class="col-md-3 hidden-xs hidden-sm">
+						<a href="#como-funciona" type="button" class="button button--full-width button--outline">Como funciona</a>
+					</div>
+					<div class="col-md-3 hidden-xs hidden-sm">
+						<a href="#fale-conosco" type="button" class="button button--full-width button--outline">Fale conosco</a>
 					</div>
 				</div>
 			</div>
@@ -68,8 +74,8 @@
 				<span class="primary-color"><b>Ree</b>ncontrar</span> seu Pet de <br>
 				uma forma simples e fácil! <br>
         <div class="main-header__section__steps">
-          Cadastre-se -> Imprima o código -> Fixe na coleira. <br>
-          Encontrou um Pet? -> Digite o código -> Dê a boa notícia.
+          <small><b>Cadastre-se <small class="icon-right"></small> Imprima o código <small class="icon-right"></small> Fixe na coleira.</b></small> <br>
+          <small><b>Encontrou um Pet? <small class="icon-right"></small> Digite o código <small class="icon-right"></small> Dê a boa notícia.</b></small>
         </div>
 				<div class="row">
 					<div class="col-md-4">
@@ -150,7 +156,7 @@
 						<div id="search-code-content">
 							<div>
 								<form class="form" method="post" id="search-code-form">
-									<input type="text" name="code" class="input input--full-width" placeholder="Código: 7kgt8er">
+									<input type="text" name="code" class="input input--full-width" placeholder="Exemplo: 7kgt8er">
 									<button type="submit" class="button button--full-width">Pesquisar</button>
 								</form>
                 <div id="search-code-value" bind-show="_searchCodeDone_" bind-hide="_searchCodeNotExist_">
@@ -176,21 +182,24 @@
 	<section id="como-funciona" class="section-area text-white bg-img-red-family">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-5">
-					<div id="how-works-area">
-						<div class="wow fadeInLeft">
-							<h2 class="section-area__title">Como <b>funciona</b></h2>
-							<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Cure.</p>
-							<div class="row">
-								<div class="col-md-8">
-									<br><br>
-									<a class="button button--outline button--white button--full-width" href="#codigo">Estou interessado</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-md-offset-1 wow fadeInRight">
+				<!--<div class="col-md-5">-->
+					<!--<div id="how-works-area">-->
+						<!--<div class="wow fadeInLeft">-->
+							<!--<h2 class="section-area__title">Como <b>funciona</b></h2>-->
+							<!--<p>-->
+								<!--Cadastre-se <small class="icon-right"></small> Imprima o código <small class="icon-right"></small> Fixe na coleira.<br>-->
+								<!--Encontrou um Pet? <small class="icon-right"></small> Digite o código <small class="icon-right"></small> Dê a boa notícia.-->
+							<!--</p>-->
+							<!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+								<!--&lt;!&ndash;<div class="col-md-8">&ndash;&gt;-->
+									<!--&lt;!&ndash;<br><br>&ndash;&gt;-->
+									<!--&lt;!&ndash;<a class="button button&#45;&#45;outline button&#45;&#45;white button&#45;&#45;full-width" href="#codigo">Estou interessado</a>&ndash;&gt;-->
+								<!--&lt;!&ndash;</div>&ndash;&gt;-->
+							<!--&lt;!&ndash;</div>&ndash;&gt;-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<div class="col-md-6 col-md-offset-3 wow fadeInRight">
 					<div class="embed-responsive embed-responsive-16by9 shadow-dp-3">
 						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/c2OTHeCKsBE" frameborder="0" allowfullscreen></iframe>
 					</div>
