@@ -3,6 +3,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+require "../configs.php";
+
 $action = isset($_POST['action'])?$_POST['action']:'';
 if(!$action){
 	$action = isset($_GET['action'])?$_GET['action']:'';
@@ -32,7 +34,7 @@ if($action == 'create'){
 		$sth->bindValue(':whatsapp', $whatsapp);
 		$sth->bindValue(':email', $email);
 		$sth->execute();
-		sendEmail("email@domain.com", "emailerName", "Reepet | Novo cadastro!", "
+		sendEmail(mainEmail, mainEmailName, "Reepet | Novo cadastro!", "
 			<p>Um novo úsuario acabou de se cadastrar no Reepet:</p>
 			<b>Nome:</b> $name <br>
 			<b>Facebook:</b> $facebook <br>
@@ -81,7 +83,7 @@ if($action == 'contact') {
 	$email = $_POST['email'];
 	$subject = $_POST['subject'];
 	$message = $_POST['message'];
-	sendEmail("email@domain.com", "emailerName", "ReePet | Contato", "
+	sendEmail(mainEmail, mainEmailName, "ReePet | Contato", "
 		<p>Alguém entrou em contato no site ReePet:</p>
 		<b>Nome:</b> $name <br>
 		<b>E-mail:</b> $email <br>
@@ -91,7 +93,7 @@ if($action == 'contact') {
 }
 
 function createDb(){
-	return new PDO('mysql:host=reepet_mysql_1;dbname=reepet', 'root', 'root');
+	return new PDO("mysql:host=". dbhost . ";dbname=" .dbname, dbuser, dbpassword);
 }
 
 function getRandomCode(){
@@ -126,13 +128,13 @@ function sendEmail($destiny, $name, $assunto, $message) {
 	$mail->Port = 587;
 	$mail->Mailer = "smtp";
 	$mail->Host = "smtp.gmail.com";
-	$mail->Username = "email@domain.com";
-	$mail->Password = "password";
-	$mail->From = "email@domain.com";
-	$mail->FromName = "emailerName";
+	$mail->Username = mainEmail;
+	$mail->Password = mainEmailPassword;
+	$mail->From = mainEmail;
+	$mail->FromName = mainEmailName;
 	$mail->CharSet = "UTF-8";
-	$mail->SetFrom('email@domain.com', 'Name');
-	$mail->addAddress('email@domain.com', 'Name');
+	$mail->SetFrom(mainEmail, 'Name');
+	$mail->addAddress(mainEmail, 'Name');
 
 	$mail->AddAddress($destiny, $name);
 	$mail->Subject = $assunto;

@@ -3,8 +3,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+include "../configs.php";
+
 function createDb(){
-	return new PDO('mysql:host=reepet_mysql_1;dbname=reepet', 'root', 'root');
+	return new PDO("mysql:host=". dbhost . ";dbname=" .dbname, dbuser, dbpassword);
 }
 
 $login = $_POST['login'];
