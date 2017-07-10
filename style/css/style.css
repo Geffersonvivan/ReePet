@@ -5,7 +5,7 @@ body{
 
 .main-header{
 	background-image: url(../img/banner.jpg);
-	background-position: center;
+	background-position: 20%;
 	background-size: cover;
 	height: 100vh;
 }
@@ -59,9 +59,9 @@ body{
 
 		.main-header__section__steps{
 			margin-top: 30px;
-			font-size: .55em;
+			font-size: .6em;
 			color: #444;
-			line-height: 1.4;
+			line-height: 1.5;
 		}
 
 	@media (max-width: 991px){
